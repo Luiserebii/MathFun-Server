@@ -2,6 +2,10 @@
   "name": "mathfun_server",
   "version": "0.0.1",
   "description": "A fun Express mini-project, a simple math API",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Luiserebii/MathFun-Server"
+  },
   "main": "node app.js",
   "scripts": {
     "test": "mocha"
