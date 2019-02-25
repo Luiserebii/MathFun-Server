@@ -16,7 +16,7 @@ router.get("/fibonacci", function(req, res, next){
    if(!req.query.n) { return res.end("ERROR: No \"n\" parameter query passed."); }
 
    let n = parseInt(req.query.n, 10);
-   let fibResult = MathFun.fibonacci();
+   let fibResult = MathFun.fibonacci(n);
   
    let jsonRes = { result: fibResult, success: 200 };
    res.json(jsonRes);
