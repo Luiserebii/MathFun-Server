@@ -1,0 +1,16 @@
+{
+  "name": "mathfun_server",
+  "version": "0.0.1",
+  "description": "A fun Express mini-project, a simple math API",
+  "main": "node app.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "Luiserebii",
+  "license": "MIT",
+  "dependencies": {
+    "chai": "^4.2.0",
+    "jshint": "^2.10.1",
+    "mocha": "^6.0.1"
+  }
+}
