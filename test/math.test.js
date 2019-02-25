@@ -1,4 +1,4 @@
-const MathFun = require("../math"); 
+const MathFun = require("../src/math"); 
 
 const chai = require("chai");
 const expect = chai.expect;
@@ -83,6 +83,18 @@ describe("Fibonacci functions", function(){
          expect(MathFun.fibonacci(10)).to.equal(34);
       });
       
+
+   });
+
+   describe("looped fibonacci from 1-100 are valid from own library", function(){
+      for(var i = 1; i < 100 + 1; i++){
+         let fibNum = MathFun.fibonacci(i);
+         let teststr = i + "nth fib is valid - " + fibNum;
+         it(teststr, function(){
+            expect(MathFun.isFibonacci(fibNum)).to.be.true;
+         });
+
+      }
 
    });
 
