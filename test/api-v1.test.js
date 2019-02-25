@@ -25,8 +25,9 @@ describe("API V1", function(){
          .expect(200)
          .end(function(err, res){
             if (err) return done(err);
-            let json = JSON.stringify(res.body);
-            console.log(json);
+            let json = res.body;
+            //console.log(JSON.stringify(json));
+            //console.log(json.result);
             expect(json.result).to.equal(34);
             done();
          });
