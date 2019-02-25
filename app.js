@@ -5,9 +5,9 @@ var app = express();
 
 app.use("/v1", api);
 
-app.get("/", function(req, res, next){
+
+app.get("/", function(req, res){
    res.end("Hello, and welcome to the MathFun server!");
-   next();
 });
 
 app.get("/help", function(req, res){
@@ -15,6 +15,16 @@ app.get("/help", function(req, res){
 });
 
 
+
+//404 middleware
+app.use(function(req, res){
+   res.status(404);
+   res.end("404: I think u dun goofed m8");
+
+})
+
+
+app.listen(3000);
 
 
 
