@@ -24,10 +24,10 @@ router.get("/fibonacci", function(req, res, next){
 
 router.use(function(req, res, next){
    if(!req.query.type == "isFib") { return next(); }
-   if(!req.query.num) { return res.end("ERROR: No \"fib\" parameter query passed."); }
+   if(!req.query.n) { return res.end("ERROR: No \"fib\" parameter query passed."); }
 
-   let num = parseInt(req.query.num, 10);
-   let boolRes = MathFun.isFibonacci(num);
+   let n = parseInt(req.query.n, 10);
+   let boolRes = MathFun.isFibonacci(n);
 
    let jsonRes = { result: boolRes, success: 200 }
    res.json(jsonRes);
