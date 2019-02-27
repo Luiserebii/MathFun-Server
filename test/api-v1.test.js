@@ -18,19 +18,7 @@ describe("API V1", function(){
    
    it("fibonacci endpoint returns valid fib", function(done){
 
-      //Pass 10, expecting 34 and status code 200
-      supertest(app)
-         .get("/v1/fibonacci")
-         .query({ n: 10 })
-         .expect(200)
-         .end(function(err, res){
-            if (err) return done(err);
-            let json = res.body;
-            //console.log(JSON.stringify(json));
-            //console.log(json.result);
-            expect(json.result).to.equal(34);
-            done();
-         });
+     testAPIFib(10, 34, done);
 
    });
 
@@ -50,4 +38,23 @@ describe("API V1", function(){
 });
 
 
+
+
+function testAPIFib(input, expectedVal, done){
+
+   //Pass 10, expecting 34 and status code 200
+   supertest(app)
+      .get("/v1/fibonacci")
+      .query({ n: input })
+      .expect(200)
+      .end(function(err, res){
+         if (err) return done(err);
+         let json = res.body;
+         //console.log(JSON.stringify(json));
+         //console.log(json.result);
+         expect(json.result).to.equal(expectedVal);
+         done();
+      });
+
+}
 

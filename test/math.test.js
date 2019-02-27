@@ -86,8 +86,8 @@ describe("Fibonacci functions", function(){
 
    });
 
-   describe("looped fibonacci from 1-100 are valid from own library", function(){
-      for(var i = 1; i < 100 + 1; i++){
+   describe("looped fibonacci from 20-32 are valid from own library", function(){
+      for(var i = 20; i < 32 + 1; i++){
          let fibNum = MathFun.fibonacci(i);
          let teststr = i + "nth fib is valid - " + fibNum;
          it(teststr, function(){
