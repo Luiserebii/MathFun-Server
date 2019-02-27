@@ -18,15 +18,31 @@ describe("API V1", function(){
    
    it("fibonacci endpoint returns valid fib", function(done){
 
-     testFib(10, 34, done);
+      testFib(10, 34, done);
 
    });
 
    it("isfib returns valid response", function(done){
-      testIsFib(8, "true", done);
+      testIsFib(8, true, done);
    });
 
+
+   describe("looping through fib to check validity", function(done){
+
+      for(let i = 20; i < 32; i++){
+         let fib = MathFun.fibonacci(i);
+         let testStr = i + "nth fib is valid - " + fib;
+
+         it(testStr, function(done){
+            testIsFib(parseInt(fib, 10), true, done);
+         });
+      }
+   });
+
+  
    it("failure on no 'n' passed", function(){
+
+ 
 
    });
 
@@ -67,8 +83,6 @@ function testIsFib(input, expectedVal, done){
       .end(function(err, res){
          if (err) return done(err);
          let json = res.body;
-         //console.log(JSON.stringify(json));
-         //console.log(json.result);
          expect(json.result).to.equal(expectedVal);
          done();
       });
