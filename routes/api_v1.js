@@ -13,7 +13,7 @@ var router = express.Router();
 
 router.get("/fibonacci", function(req, res, next){
    if(req.query.type) { return next(); }
-   if(!req.query.n) { return res.end("ERROR: No \"n\" parameter query passed."); }
+   if(!req.query.n) { return res.status(400).send("ERROR: No \"n\" parameter query passed."); }
 
    let n = parseInt(req.query.n, 10);
    let fibResult = MathFun.fibonacci(n);
@@ -24,7 +24,7 @@ router.get("/fibonacci", function(req, res, next){
 
 router.use(function(req, res, next){
    if(!req.query.type == "isFib") { return next(); }
-   if(!req.query.n) { return res.end("ERROR: No \"fib\" parameter query passed."); }
+   if(!req.query.n) { return res.status(400).send("ERROR: No \"fib\" parameter query passed."); }
 
    let n = parseInt(req.query.n, 10);
    let boolRes = MathFun.isFibonacci(n);
@@ -37,7 +37,7 @@ router.use(function(req, res, next){
 
 
 router.use(function(req, res){
-   res.end("Sorry, nothing hit!");
+   res.status(404).send("Sorry, nothing hit!");
 });
 
 module.exports = router;

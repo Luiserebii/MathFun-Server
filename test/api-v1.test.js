@@ -17,9 +17,7 @@ const app = require("../app");
 describe("API V1", function(){
    
    it("fibonacci endpoint returns valid fib", function(done){
-
       testFib(10, 34, done);
-
    });
 
    it("isfib returns valid response", function(done){
@@ -40,14 +38,28 @@ describe("API V1", function(){
    });
 
   
-   it("failure on no 'n' passed", function(){
-
- 
-
+   it("failure on no 'n' passed", function(done){
+      
+      supertest(app)
+         .get("/v1/fibonacci")
+         .expect(400)
+         .end(function(err, res){
+            if (err) return done(err);
+            done();
+         });
+      
    });
 
-   it("returns apology on nothing hit", function(){
+   it("returns apology on nothing hit", function(done){
 
+      supertest(app)
+         .get("/v1/anallubricant")
+         .expect(404)
+         .end(function(err, res){
+            if (err) return done(err);
+            done();
+         });
+ 
    });
 
 });
